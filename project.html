@@ -18253,10 +18253,10 @@ class="
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Below we can see the same visualization as above, but with the depth of subreddits mapped to the colors:</p>
 <ul>
-<li><text style="color:#DB27C4"><strong>Pink - depth 0</strong></text></li>
-<li><text style="color:#069C19"><strong>Green - depth 1</strong></text></li>
-<li><text style="color:#17D9FF"><strong>Blue - depth 2</strong></text></li>
-<li><text style="color:#F3A400"><strong>Orange - depth 3</strong></text></li>
+<li><font color="#DB27C4"><strong>Pink - depth 0</strong></font></li>
+<li><font color="#069C19"><strong>Green - depth 1</strong></font></li>
+<li><font color="#17D9FF"><strong>Blue - depth 2</strong></font></li>
+<li><font color="#F3A400"><strong>Orange - depth 3</strong></font></li>
 </ul>
 <p>I also decided to set the size of nodes to a constant value, so it is easier to see the differences in the colors.</p>
 
@@ -19108,7 +19108,7 @@ class="
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Display top 5 subreddits for each centrality</span>
 <span class="k">for</span> <span class="n">centrality</span> <span class="ow">in</span> <span class="n">G_subs_lcc_centrality_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Top 5 subreddits by </span><span class="si">{</span><span class="n">centrality</span><span class="si">}</span><span class="s2"> centrality:&quot;</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">G_subs_lcc_centrality_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">centrality</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">G_subs_lcc_centrality_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">centrality</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -19815,6 +19815,22 @@ r/wholesomegifs is ranked 379/958 by number of subscribers
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>My theory seems to be correct as <code>r/wholesomegifs</code> doesn't take a lead in any of the metrics.</p>
+<p>What is also worth noting is the fact that the most central subreddits when it comes to degree, closeness and eigenvector centrality are mainly subreddits that are focused on entertainment and humor (memes, gifs, videos, etc.) without any specific topic in mind, such as:</p>
+<ul>
+<li><code>r/wholesomegifs</code> - gifs that are supposed to make you feel good,</li>
+<li><code>r/BetterEveryLoop</code> - gifs that suppose to be better every time you watch them,</li>
+<li><code>r/BeAmazed</code> - gifs and videos that are supposed to amaze you,</li>
+<li><code>r/gifsthatkeepongiving</code> - gifs that are supposed to be funny every time you watch them,</li>
+<li><code>r/Eyebleach</code> - gifs that are supposed to be calming and cute,</li>
+</ul>
+<p>but when it comes to betweenness centrality, the most central subreddits are more focused on specific topics and news, such as:</p>
+<ul>
+<li><code>r/gaming</code> - gaming news and discussions,</li>
+<li><code>r/technology</code> - technology news and novelties,</li>
+<li><code>r/technews</code> - technology news,</li>
+<li><code>r/redesign</code> - ideas and submissions for the Reddit platform redesign.</li>
+</ul>
+<p>That could mean that subreddits that focus on humor and entertainment create a well defined communities that gather a lot people with similar interests and are visited regularly, while subreddits that focus on specific topics and news are more likely to be visited by people that in case of need will look for a specific information or post a question about a specific topic and then leave the subreddit. If that theory is correct the subreddits from the second group can act as a bridge that connects people from different communities and that's why they are more central in the betweenness centrality metric.</p>
 
 </div>
 </div>
