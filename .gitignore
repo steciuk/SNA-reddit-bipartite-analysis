@@ -3,3 +3,4 @@ reddit_secrets.py
 *.zip
 __pycache__
 temp/
+diffusion_animation/
